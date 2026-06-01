@@ -1,0 +1,36 @@
+{
+  "agents": [
+    {
+      "id": "agent-01",
+      "name": "HermesFox",
+      "aliases": ["hermesfox", "fox"],
+      "status": "scanner",
+      "color": "#43f7ff",
+      "avatar": "./avatars/agent-01-64.png"
+    },
+    {
+      "id": "agent-02",
+      "name": "Hermies",
+      "aliases": ["hermies"],
+      "status": "planner",
+      "color": "#a76cff",
+      "avatar": "./avatars/agent-02-64.png"
+    },
+    {
+      "id": "agent-03",
+      "name": "BF",
+      "aliases": ["bf", "builder"],
+      "status": "builder",
+      "color": "#6dffb5",
+      "avatar": "./avatars/agent-03-64.png"
+    },
+    {
+      "id": "agent-04",
+      "name": "deercare",
+      "aliases": ["deercare", "deer"],
+      "status": "watcher",
+      "color": "#ffd166",
+      "avatar": "./avatars/agent-04-64.png"
+    }
+  ]
+}

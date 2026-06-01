@@ -1,0 +1,15 @@
+node_modules/
+__pycache__/
+*.py[cod]
+
+.env
+.env.*
+
+.tmp-*
+*.log
+
+hermes-agent-commands.json
+hermes-webui-cron-jobs.json
+hermes-webui-events.ndjson
+hermes-webui-history.json
+hermes-webui-inbox.ndjson

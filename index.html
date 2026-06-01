@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hermes Team WebUI Demo</title>
+    <link rel="preload" href="./789.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="./hermes-avatar-logo-96.png" as="image" />
+    <link rel="preload" href="./avatars/agent-01-64.png" as="image" />
+    <link rel="preload" href="./avatars/agent-02-64.png" as="image" />
+    <link rel="preload" href="./avatars/agent-03-64.png" as="image" />
+    <link rel="preload" href="./avatars/agent-04-64.png" as="image" />
+    <link rel="stylesheet" href="./styles.css?v=startup-agent-entrance-fast-interaction-20260601" />
+    <link rel="stylesheet" href="./LightPillar.css?v=background-789-20260601" />
+  </head>
+  <body>
+    <div id="lightPillar" aria-hidden="true">
+      <svg class="circuit-current-map" viewBox="0 0 1680 944" preserveAspectRatio="xMidYMid slice">
+        <g class="circuit-track">
+          <path d="M0 475 H188 C224 475 222 459 252 459 H538 C590 459 604 438 656 438" />
+          <path d="M0 524 H170 C226 524 230 504 276 504 H466 C510 504 540 548 598 548" />
+          <path d="M1680 475 H1492 C1456 475 1458 459 1428 459 H1142 C1090 459 1076 438 1024 438" />
+          <path d="M1680 524 H1510 C1454 524 1450 504 1404 504 H1214 C1170 504 1140 548 1082 548" />
+          <path class="circuit-track--soft" d="M276 427 H520 C564 427 588 409 632 409" />
+          <path class="circuit-track--soft" d="M1404 427 H1160 C1116 427 1092 409 1048 409" />
+          <circle cx="840" cy="472" r="184" />
+          <circle class="circuit-track--soft" cx="840" cy="472" r="137" />
+        </g>
+        <g class="circuit-pulse circuit-pulse--main">
+          <path pathLength="1000" d="M0 475 H188 C224 475 222 459 252 459 H538 C590 459 604 438 656 438" />
+          <path pathLength="1000" d="M0 524 H170 C226 524 230 504 276 504 H466 C510 504 540 548 598 548" />
+        </g>
+        <g class="circuit-pulse circuit-pulse--main circuit-pulse--reverse">
+          <path pathLength="1000" d="M1680 475 H1492 C1456 475 1458 459 1428 459 H1142 C1090 459 1076 438 1024 438" />
+          <path pathLength="1000" d="M1680 524 H1510 C1454 524 1450 504 1404 504 H1214 C1170 504 1140 548 1082 548" />
+        </g>
+        <g class="circuit-pulse circuit-pulse--secondary">
+          <path pathLength="1000" d="M276 427 H520 C564 427 588 409 632 409" />
+          <path pathLength="1000" d="M1404 427 H1160 C1116 427 1092 409 1048 409" />
+        </g>
+        <g class="circuit-ring-pulse">
+          <circle pathLength="1000" cx="840" cy="472" r="184" />
+          <circle pathLength="1000" cx="840" cy="472" r="137" />
+        </g>
+      </svg>
+      <svg class="center-ring-rotor" viewBox="0 0 1680 944" preserveAspectRatio="xMidYMid slice">
+        <g class="center-ring-device center-ring-device--agent-01">
+          <circle class="center-ring-bearing" cx="840" cy="472" r="176" />
+          <g class="center-ring-slots">
+            <path class="center-ring-slot" pathLength="100" d="M 894.4 304.6 A 176 176 0 0 1 995.4 389.4" />
+            <path class="center-ring-slot" pathLength="100" d="M 1007.4 526.4 A 176 176 0 0 1 911.6 632.8" />
+            <path class="center-ring-slot" pathLength="100" d="M 785.6 639.4 A 176 176 0 0 1 679.2 543.6" />
+            <path class="center-ring-slot" pathLength="100" d="M 672.6 417.6 A 176 176 0 0 1 768.4 311.2" />
+          </g>
+          <g class="center-ring-lamps">
+            <path class="center-ring-lamp" pathLength="100" d="M 894.4 304.6 A 176 176 0 0 1 995.4 389.4" />
+            <path class="center-ring-lamp" pathLength="100" d="M 1007.4 526.4 A 176 176 0 0 1 911.6 632.8" />
+            <path class="center-ring-lamp" pathLength="100" d="M 785.6 639.4 A 176 176 0 0 1 679.2 543.6" />
+            <path class="center-ring-lamp" pathLength="100" d="M 672.6 417.6 A 176 176 0 0 1 768.4 311.2" />
+          </g>
+          <g class="center-ring-cores">
+            <path class="center-ring-core" pathLength="100" d="M 894.4 304.6 A 176 176 0 0 1 995.4 389.4" />
+            <path class="center-ring-core" pathLength="100" d="M 1007.4 526.4 A 176 176 0 0 1 911.6 632.8" />
+            <path class="center-ring-core" pathLength="100" d="M 785.6 639.4 A 176 176 0 0 1 679.2 543.6" />
+            <path class="center-ring-core" pathLength="100" d="M 672.6 417.6 A 176 176 0 0 1 768.4 311.2" />
+          </g>
+          <g class="center-ring-sweeps">
+            <path class="center-ring-sweep" pathLength="100" d="M 894.4 304.6 A 176 176 0 0 1 995.4 389.4" />
+            <path class="center-ring-sweep" pathLength="100" d="M 1007.4 526.4 A 176 176 0 0 1 911.6 632.8" />
+            <path class="center-ring-sweep" pathLength="100" d="M 785.6 639.4 A 176 176 0 0 1 679.2 543.6" />
+            <path class="center-ring-sweep" pathLength="100" d="M 672.6 417.6 A 176 176 0 0 1 768.4 311.2" />
+          </g>
+        </g>
+        <g class="center-ring-device center-ring-device--agent-02">
+          <circle class="center-ring-bearing" cx="840" cy="472" r="194" />
+          <g class="center-ring-slots">
+            <path class="center-ring-slot" pathLength="100" d="M 899.9 287.5 A 194 194 0 0 1 1011.3 380.9" />
+            <path class="center-ring-slot" pathLength="100" d="M 1024.5 531.9 A 194 194 0 0 1 918.9 649.2" />
+            <path class="center-ring-slot" pathLength="100" d="M 780.1 656.5 A 194 194 0 0 1 662.8 550.9" />
+            <path class="center-ring-slot" pathLength="100" d="M 655.5 412.1 A 194 194 0 0 1 761.1 294.8" />
+          </g>
+          <g class="center-ring-lamps">
+            <path class="center-ring-lamp" pathLength="100" d="M 899.9 287.5 A 194 194 0 0 1 1011.3 380.9" />
+            <path class="center-ring-lamp" pathLength="100" d="M 1024.5 531.9 A 194 194 0 0 1 918.9 649.2" />
+            <path class="center-ring-lamp" pathLength="100" d="M 780.1 656.5 A 194 194 0 0 1 662.8 550.9" />
+            <path class="center-ring-lamp" pathLength="100" d="M 655.5 412.1 A 194 194 0 0 1 761.1 294.8" />
+          </g>
+          <g class="center-ring-cores">
+            <path class="center-ring-core" pathLength="100" d="M 899.9 287.5 A 194 194 0 0 1 1011.3 380.9" />
+            <path class="center-ring-core" pathLength="100" d="M 1024.5 531.9 A 194 194 0 0 1 918.9 649.2" />
+            <path class="center-ring-core" pathLength="100" d="M 780.1 656.5 A 194 194 0 0 1 662.8 550.9" />
+            <path class="center-ring-core" pathLength="100" d="M 655.5 412.1 A 194 194 0 0 1 761.1 294.8" />
+          </g>
+          <g class="center-ring-sweeps">
+            <path class="center-ring-sweep" pathLength="100" d="M 899.9 287.5 A 194 194 0 0 1 1011.3 380.9" />
+            <path class="center-ring-sweep" pathLength="100" d="M 1024.5 531.9 A 194 194 0 0 1 918.9 649.2" />
+            <path class="center-ring-sweep" pathLength="100" d="M 780.1 656.5 A 194 194 0 0 1 662.8 550.9" />
+            <path class="center-ring-sweep" pathLength="100" d="M 655.5 412.1 A 194 194 0 0 1 761.1 294.8" />
+          </g>
+        </g>
+        <g class="center-ring-device center-ring-device--agent-03">
+          <circle class="center-ring-bearing" cx="840" cy="472" r="212" />
+          <g class="center-ring-slots">
+            <path class="center-ring-slot" pathLength="100" d="M 905.5 270.4 A 212 212 0 0 1 1027.2 372.5" />
+            <path class="center-ring-slot" pathLength="100" d="M 1041.6 537.5 A 212 212 0 0 1 926.2 665.7" />
+            <path class="center-ring-slot" pathLength="100" d="M 774.5 673.6 A 212 212 0 0 1 646.3 558.2" />
+            <path class="center-ring-slot" pathLength="100" d="M 638.4 406.5 A 212 212 0 0 1 753.8 278.3" />
+          </g>
+          <g class="center-ring-lamps">
+            <path class="center-ring-lamp" pathLength="100" d="M 905.5 270.4 A 212 212 0 0 1 1027.2 372.5" />
+            <path class="center-ring-lamp" pathLength="100" d="M 1041.6 537.5 A 212 212 0 0 1 926.2 665.7" />
+            <path class="center-ring-lamp" pathLength="100" d="M 774.5 673.6 A 212 212 0 0 1 646.3 558.2" />
+            <path class="center-ring-lamp" pathLength="100" d="M 638.4 406.5 A 212 212 0 0 1 753.8 278.3" />
+          </g>
+          <g class="center-ring-cores">
+            <path class="center-ring-core" pathLength="100" d="M 905.5 270.4 A 212 212 0 0 1 1027.2 372.5" />
+            <path class="center-ring-core" pathLength="100" d="M 1041.6 537.5 A 212 212 0 0 1 926.2 665.7" />
+            <path class="center-ring-core" pathLength="100" d="M 774.5 673.6 A 212 212 0 0 1 646.3 558.2" />
+            <path class="center-ring-core" pathLength="100" d="M 638.4 406.5 A 212 212 0 0 1 753.8 278.3" />
+          </g>
+          <g class="center-ring-sweeps">
+            <path class="center-ring-sweep" pathLength="100" d="M 905.5 270.4 A 212 212 0 0 1 1027.2 372.5" />
+            <path class="center-ring-sweep" pathLength="100" d="M 1041.6 537.5 A 212 212 0 0 1 926.2 665.7" />
+            <path class="center-ring-sweep" pathLength="100" d="M 774.5 673.6 A 212 212 0 0 1 646.3 558.2" />
+            <path class="center-ring-sweep" pathLength="100" d="M 638.4 406.5 A 212 212 0 0 1 753.8 278.3" />
+          </g>
+        </g>
+        <g class="center-ring-device center-ring-device--agent-04">
+          <circle class="center-ring-bearing" cx="840" cy="472" r="230" />
+          <g class="center-ring-slots">
+            <path class="center-ring-slot" pathLength="100" d="M 911.1 253.3 A 230 230 0 0 1 1043.1 364.0" />
+            <path class="center-ring-slot" pathLength="100" d="M 1058.7 543.1 A 230 230 0 0 1 933.5 682.1" />
+            <path class="center-ring-slot" pathLength="100" d="M 768.9 690.7 A 230 230 0 0 1 629.9 565.5" />
+            <path class="center-ring-slot" pathLength="100" d="M 621.3 400.9 A 230 230 0 0 1 746.5 261.9" />
+          </g>
+          <g class="center-ring-lamps">
+            <path class="center-ring-lamp" pathLength="100" d="M 911.1 253.3 A 230 230 0 0 1 1043.1 364.0" />
+            <path class="center-ring-lamp" pathLength="100" d="M 1058.7 543.1 A 230 230 0 0 1 933.5 682.1" />
+            <path class="center-ring-lamp" pathLength="100" d="M 768.9 690.7 A 230 230 0 0 1 629.9 565.5" />
+            <path class="center-ring-lamp" pathLength="100" d="M 621.3 400.9 A 230 230 0 0 1 746.5 261.9" />
+          </g>
+          <g class="center-ring-cores">
+            <path class="center-ring-core" pathLength="100" d="M 911.1 253.3 A 230 230 0 0 1 1043.1 364.0" />
+            <path class="center-ring-core" pathLength="100" d="M 1058.7 543.1 A 230 230 0 0 1 933.5 682.1" />
+            <path class="center-ring-core" pathLength="100" d="M 768.9 690.7 A 230 230 0 0 1 629.9 565.5" />
+            <path class="center-ring-core" pathLength="100" d="M 621.3 400.9 A 230 230 0 0 1 746.5 261.9" />
+          </g>
+          <g class="center-ring-sweeps">
+            <path class="center-ring-sweep" pathLength="100" d="M 911.1 253.3 A 230 230 0 0 1 1043.1 364.0" />
+            <path class="center-ring-sweep" pathLength="100" d="M 1058.7 543.1 A 230 230 0 0 1 933.5 682.1" />
+            <path class="center-ring-sweep" pathLength="100" d="M 768.9 690.7 A 230 230 0 0 1 629.9 565.5" />
+            <path class="center-ring-sweep" pathLength="100" d="M 621.3 400.9 A 230 230 0 0 1 746.5 261.9" />
+          </g>
+        </g>
+        <circle class="center-ring-origin" cx="840" cy="472" r="1" />
+      </svg>
+    </div>
+
+    <main class="experience" aria-label="Hermes team message space">
+      <header class="hud hud-top" aria-label="Hermes status">
+        <div class="brand-lockup">
+          <img class="brand-sigil" src="./hermes-avatar-logo-96.png" width="96" height="96" alt="" aria-hidden="true" decoding="async" />
+          <div>
+            <h1>Hermes Team</h1>
+            <p>coordination surface · live agent field</p>
+          </div>
+        </div>
+
+        <section class="agent-strip" aria-label="Agent activity">
+          <div class="agent-dot is-active" data-agent="agent-01">
+            <span></span>
+            <strong>HermesFox</strong>
+          </div>
+          <div class="agent-dot" data-agent="agent-02">
+            <span></span>
+            <strong>Hermies</strong>
+          </div>
+          <div class="agent-dot" data-agent="agent-03">
+            <span></span>
+            <strong>BF</strong>
+          </div>
+          <div class="agent-dot" data-agent="agent-04">
+            <span></span>
+            <strong>deercare</strong>
+          </div>
+        </section>
+
+      </header>
+
+      <section id="bubblesLayer" class="bubbles-layer" aria-live="polite" aria-label="Agent message bubbles"></section>
+      <section id="chipDock" class="chip-dock" aria-label="Recent agent messages"></section>
+      <section id="cronInbox" class="cron-inbox" aria-label="Cron inbox">
+        <button id="cronInboxToggle" class="cron-inbox__toggle" type="button" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <strong>CRON</strong>
+          <em id="cronInboxCount">0</em>
+        </button>
+        <div id="cronInboxPanel" class="cron-inbox__panel" aria-hidden="true">
+          <header>
+            <span>cron inbox</span>
+            <button id="cronInboxClose" type="button" aria-label="关闭 cron inbox">×</button>
+          </header>
+          <div id="cronInboxList" class="cron-inbox__list"></div>
+        </div>
+      </section>
+      <aside id="historyPanel" class="history-panel" aria-label="Agent history" aria-hidden="true">
+        <div class="history-panel__shell">
+          <header class="history-panel__head">
+            <div>
+              <span id="historyPanelAgent">History</span>
+              <strong>更多历史</strong>
+            </div>
+            <button id="historyPanelClose" type="button" aria-label="关闭历史">×</button>
+          </header>
+          <div class="history-panel__filters">
+            <input id="historySearch" type="search" placeholder="搜索历史" />
+            <select id="historySource" aria-label="按来源筛选">
+              <option value="">全部来源</option>
+              <option value="wsl">WSL</option>
+              <option value="telegram">Telegram</option>
+              <option value="web">Web</option>
+            </select>
+            <input id="historyDate" type="date" aria-label="按日期筛选" />
+          </div>
+          <div id="historyPanelList" class="history-panel__list"></div>
+        </div>
+      </aside>
+      <section id="cronLayer" class="cron-layer" aria-label="Cron task messages" aria-hidden="true"></section>
+
+      <section id="replyComposer" class="reply-composer" aria-label="Agent input composer" aria-hidden="true">
+        <div class="reply-shell">
+          <div class="reply-meta">
+            <span id="replyTarget">Reply</span>
+            <span id="queueState">0 pending</span>
+          </div>
+          <div id="replyQuote" class="reply-quote" hidden>
+            <span id="replyQuoteLabel"></span>
+            <p id="replyQuoteText"></p>
+          </div>
+          <div class="reply-row">
+            <textarea id="replyInput" rows="2" placeholder="输入内容，Enter 发送，Shift + Enter 换行"></textarea>
+            <button id="sendReplyButton" class="send-action" type="button" disabled>发送</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="bubbleTemplate">
+      <article class="message-bubble" tabindex="0">
+        <span class="bubble-orbital" aria-hidden="true"></span>
+        <button class="bubble-copy" type="button" title="复制文本" aria-label="复制文本"><span aria-hidden="true"></span></button>
+        <div class="bubble-head">
+          <span class="agent-beacon" aria-hidden="true"></span>
+          <div>
+            <strong class="bubble-agent"></strong>
+            <time class="bubble-time"></time>
+          </div>
+        </div>
+        <p class="bubble-text"></p>
+        <div class="bubble-foot" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+      </article>
+    </template>
+
+    <template id="chipTemplate">
+      <button class="message-chip" type="button">
+        <span class="chip-light" aria-hidden="true"></span>
+        <span class="chip-agent"></span>
+        <span class="chip-count"></span>
+      </button>
+    </template>
+
+    <script src="./app.js?v=startup-agent-audio-fast-interaction-20260601"></script>
+  </body>
+</html>

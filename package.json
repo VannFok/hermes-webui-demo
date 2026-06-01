@@ -1,0 +1,21 @@
+{
+  "name": "hermes-webui-demo",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node tools/hermes-webui-live.mjs",
+    "server": "node tools/hermes-webui-server.mjs",
+    "connector": "node tools/hermes-webui-connector.mjs",
+    "static": "python -m http.server 4173",
+    "test": "node --test tools/hermes-webui-server.test.mjs tools/hermes-webui-inbox.test.mjs tools/hermes-webui-connector.test.mjs tools/hermes-webui-codex-agent.test.mjs tools/hermes-webui-wsl-agent.test.mjs tools/hermes-webui-cron-scheduler.test.mjs tools/hermes-webui-startup-animation.test.mjs tools/hermes-webui-center-ring.test.mjs tools/hermes-webui-performance.test.mjs",
+    "check": "node --check app.js && node --check LightPillar.js && node --check LightPillar.boot.js && node --check tools/hermes-webui-server.mjs && node --check tools/hermes-webui-inbox.mjs && node --check tools/hermes-webui-connector.mjs && node --check tools/hermes-webui-live.mjs && node --check tools/hermes-webui-codex-agent.mjs && node --check tools/hermes-webui-wsl-agent.mjs && node --check tools/hermes-webui-cron-scheduler.mjs && node --test tools/hermes-webui-server.test.mjs tools/hermes-webui-inbox.test.mjs tools/hermes-webui-connector.test.mjs tools/hermes-webui-codex-agent.test.mjs tools/hermes-webui-wsl-agent.test.mjs tools/hermes-webui-cron-scheduler.test.mjs tools/hermes-webui-startup-animation.test.mjs tools/hermes-webui-center-ring.test.mjs tools/hermes-webui-performance.test.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.184.0"
+  }
+}

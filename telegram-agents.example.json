@@ -1,0 +1,6 @@
+[
+  { "agentId": "agent-01", "telegramId": "123456789" },
+  { "agentId": "agent-02", "telegramId": "123456789" },
+  { "agentId": "agent-03", "telegramId": "123456789" },
+  { "agentId": "agent-04", "telegramId": "123456789" }
+]

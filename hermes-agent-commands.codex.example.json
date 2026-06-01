@@ -1,0 +1,20 @@
+{
+  "commands": {
+    "agent-01": {
+      "command": "node",
+      "args": ["tools/hermes-webui-codex-agent.mjs"]
+    },
+    "agent-02": {
+      "command": "node",
+      "args": ["tools/hermes-webui-codex-agent.mjs"]
+    },
+    "agent-03": {
+      "command": "node",
+      "args": ["tools/hermes-webui-codex-agent.mjs"]
+    },
+    "agent-04": {
+      "command": "node",
+      "args": ["tools/hermes-webui-codex-agent.mjs"]
+    }
+  }
+}

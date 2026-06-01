@@ -1,0 +1,571 @@
+#lightPillar {
+  --ring-size: max(24.6vw, 43.8vh);
+  --ring-band: clamp(14px, 1.15vw, 24px);
+  --ring-edge-gap: clamp(3px, 0.32vw, 7px);
+  --ring-agent-01: #43f7ff;
+  --ring-agent-02: #a76cff;
+  --ring-agent-03: #6dffb5;
+  --ring-agent-04: #ffd166;
+  --breath-duration: 3.8s;
+  --breath-rotation: 0deg;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  background: #130f1a url("./789.png") center / cover no-repeat;
+  isolation: isolate;
+}
+
+.circuit-current-map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  contain: paint;
+}
+
+.circuit-current-map path,
+.circuit-current-map circle {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.circuit-track {
+  stroke: rgba(116, 255, 63, 0.18);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+  opacity: 0.58;
+  animation: circuitAmbient 7.6s ease-in-out infinite;
+}
+
+.circuit-track--soft {
+  stroke-width: 0.95;
+  opacity: 0.42;
+}
+
+.circuit-pulse,
+.circuit-ring-pulse {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter:
+    drop-shadow(0 0 4px rgba(184, 255, 145, 0.52))
+    drop-shadow(0 0 14px rgba(116, 255, 63, 0.22));
+}
+
+.circuit-pulse path {
+  stroke: rgba(205, 255, 186, 0.92);
+  stroke-width: 2.6;
+  stroke-dasharray: 128 872;
+  stroke-dashoffset: 1000;
+  animation: circuitPathPulse 8.2s cubic-bezier(0.22, 0.72, 0.16, 1) infinite;
+}
+
+.circuit-pulse--main path:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.circuit-pulse--reverse path {
+  animation-name: circuitPathPulseReverse;
+}
+
+.circuit-pulse--secondary path {
+  stroke: rgba(170, 255, 135, 0.74);
+  stroke-width: 1.8;
+  stroke-dasharray: 92 908;
+  animation-delay: 0.84s;
+}
+
+.circuit-pulse--secondary path:nth-child(2) {
+  animation-name: circuitPathPulseReverse;
+  animation-delay: 1.08s;
+}
+
+.circuit-ring-pulse circle {
+  stroke: rgba(178, 255, 146, 0.84);
+  stroke-width: 2.1;
+  stroke-dasharray: 118 882;
+  stroke-dashoffset: 1000;
+  opacity: 0;
+  animation: circuitRingPulse 9.4s cubic-bezier(0.2, 0.82, 0.18, 1) infinite;
+}
+
+.circuit-ring-pulse circle:nth-child(2) {
+  stroke-width: 1.55;
+  stroke-dasharray: 86 914;
+  animation-delay: 0.74s;
+}
+
+.center-ring-rotor {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+  will-change: opacity;
+  contain: paint;
+  shape-rendering: optimizeSpeed;
+}
+
+.center-ring-device {
+  --ring-color: var(--ring-agent-01);
+  transform-box: view-box;
+  transform-origin: 840px 472px;
+  opacity: 0;
+  transition: opacity 0.24s ease;
+}
+
+.center-ring-device--agent-01 {
+  --ring-color: var(--ring-agent-01);
+}
+
+.center-ring-device--agent-02 {
+  --ring-color: var(--ring-agent-02);
+}
+
+.center-ring-device--agent-03 {
+  --ring-color: var(--ring-agent-03);
+}
+
+.center-ring-device--agent-04 {
+  --ring-color: var(--ring-agent-04);
+}
+
+.center-ring-bearing {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke: color-mix(in srgb, var(--ring-color) 18%, transparent);
+  stroke-width: 1px;
+  opacity: 0.38;
+  stroke-dasharray: 7 18;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+}
+
+.center-ring-slot,
+.center-ring-lamp,
+.center-ring-core,
+.center-ring-sweep {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+}
+
+.center-ring-slot {
+  stroke: rgba(0, 7, 3, 0.95);
+  stroke-width: 7px;
+  opacity: 0.66;
+}
+
+.center-ring-lamp {
+  stroke: var(--ring-color);
+  stroke-width: 4px;
+  opacity: 0.8;
+}
+
+.center-ring-core {
+  stroke: color-mix(in srgb, var(--ring-color) 32%, white);
+  stroke-width: 1.5px;
+  opacity: 0.5;
+}
+
+.center-ring-sweep {
+  stroke: color-mix(in srgb, var(--ring-color) 26%, white);
+  stroke-width: 2px;
+  stroke-dasharray: 12 88;
+  opacity: 0.34;
+}
+
+.center-ring-origin {
+  fill: none;
+  opacity: 0;
+}
+
+#lightPillar.is-thinking-agent-01 .center-ring-device--agent-01,
+#lightPillar.is-thinking-agent-02 .center-ring-device--agent-02,
+#lightPillar.is-thinking-agent-03 .center-ring-device--agent-03,
+#lightPillar.is-thinking-agent-04 .center-ring-device--agent-04 {
+  opacity: 0.86;
+  will-change: transform, opacity;
+}
+
+#lightPillar.is-thinking .circuit-track,
+#lightPillar.is-thinking .circuit-pulse path,
+#lightPillar.is-thinking .circuit-ring-pulse circle {
+  animation-play-state: paused;
+}
+
+#lightPillar.is-thinking .circuit-pulse,
+#lightPillar.is-thinking .circuit-ring-pulse {
+  filter: none;
+  opacity: 0.24;
+}
+
+#lightPillar.is-thinking-agent-01 .center-ring-device--agent-01 {
+  animation: centerRingSpinClockwise 14s linear infinite;
+}
+
+#lightPillar.is-thinking-agent-02 .center-ring-device--agent-02 {
+  animation: centerRingSpinCounter 11.8s linear infinite;
+}
+
+#lightPillar.is-thinking-agent-03 .center-ring-device--agent-03 {
+  animation: centerRingSpinClockwise 16.5s linear infinite;
+}
+
+#lightPillar.is-thinking-agent-04 .center-ring-device--agent-04 {
+  animation: centerRingSpinCounter 13.2s linear infinite;
+}
+
+#lightPillar::before,
+#lightPillar::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  pointer-events: none;
+  content: "";
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transform-origin: center;
+  transition: opacity 0.24s ease;
+  will-change: transform, opacity;
+}
+
+#lightPillar::before {
+  background:
+    conic-gradient(
+      from -2deg,
+      transparent 0deg 22deg,
+      rgba(116, 255, 63, 0.34) 22deg 68deg,
+      transparent 68deg 106deg,
+      rgba(116, 255, 63, 0.32) 106deg 156deg,
+      transparent 156deg 202deg,
+      rgba(116, 255, 63, 0.32) 202deg 252deg,
+      transparent 252deg 292deg,
+      rgba(116, 255, 63, 0.34) 292deg 338deg,
+      transparent 338deg 360deg
+    );
+  filter: blur(5px) saturate(1.08);
+  -webkit-mask: radial-gradient(
+    circle closest-side,
+    transparent calc(100% - var(--ring-band) - var(--ring-edge-gap)),
+    #000 calc(100% - var(--ring-band)) calc(100% - var(--ring-edge-gap)),
+    transparent calc(100% - 1px)
+  );
+  mask: radial-gradient(
+    circle closest-side,
+    transparent calc(100% - var(--ring-band) - var(--ring-edge-gap)),
+    #000 calc(100% - var(--ring-band)) calc(100% - var(--ring-edge-gap)),
+    transparent calc(100% - 1px)
+  );
+}
+
+#lightPillar::after {
+  background:
+    conic-gradient(
+      from -2deg,
+      transparent 0deg 23deg,
+      rgba(116, 255, 63, 0.46) 23deg 67deg,
+      transparent 67deg 108deg,
+      rgba(116, 255, 63, 0.42) 108deg 154deg,
+      transparent 154deg 204deg,
+      rgba(116, 255, 63, 0.42) 204deg 250deg,
+      transparent 250deg 294deg,
+      rgba(116, 255, 63, 0.46) 294deg 336deg,
+      transparent 336deg 360deg
+    );
+  filter:
+    drop-shadow(0 0 3px rgba(116, 255, 63, 0.46))
+    drop-shadow(0 0 8px rgba(116, 255, 63, 0.18));
+  -webkit-mask: radial-gradient(
+    circle closest-side,
+    transparent calc(100% - var(--ring-band) - var(--ring-edge-gap)),
+    #000 calc(100% - var(--ring-band)) calc(100% - var(--ring-edge-gap)),
+    transparent calc(100% - 1px)
+  );
+  mask: radial-gradient(
+    circle closest-side,
+    transparent calc(100% - var(--ring-band) - var(--ring-edge-gap)),
+    #000 calc(100% - var(--ring-band)) calc(100% - var(--ring-edge-gap)),
+    transparent calc(100% - 1px)
+  );
+}
+
+#lightPillar.is-thinking::before {
+  animation: none;
+  opacity: 0;
+}
+
+#lightPillar.is-thinking::after {
+  animation: none;
+  opacity: 0;
+}
+
+#lightPillar[data-thinking-agent="agent-01"] {
+  --breath-duration: 3.65s;
+}
+
+#lightPillar[data-thinking-agent="agent-02"] {
+  --breath-duration: 3.95s;
+}
+
+#lightPillar[data-thinking-agent="agent-03"] {
+  --breath-duration: 3.5s;
+}
+
+#lightPillar[data-thinking-agent="agent-04"] {
+  --breath-duration: 4.15s;
+}
+
+.light-pillar-container,
+.light-pillar-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.light-pillar-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.light-pillar-fallback {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #130f1a url("./789.png") center / cover no-repeat;
+  color: transparent;
+}
+
+@keyframes circuitAmbient {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+
+  20%,
+  58% {
+    opacity: 0.68;
+  }
+
+  32%,
+  72% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes circuitPathPulse {
+  0%,
+  12%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 1040;
+  }
+
+  17% {
+    opacity: 0.95;
+  }
+
+  46% {
+    opacity: 0.82;
+    stroke-dashoffset: 0;
+  }
+
+  54% {
+    opacity: 0;
+    stroke-dashoffset: -120;
+  }
+
+  68% {
+    opacity: 0;
+    stroke-dashoffset: 1040;
+  }
+
+  75% {
+    opacity: 0.52;
+  }
+
+  86% {
+    opacity: 0;
+    stroke-dashoffset: 220;
+  }
+}
+
+@keyframes circuitPathPulseReverse {
+  0%,
+  12%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -1040;
+  }
+
+  17% {
+    opacity: 0.95;
+  }
+
+  46% {
+    opacity: 0.82;
+    stroke-dashoffset: 0;
+  }
+
+  54% {
+    opacity: 0;
+    stroke-dashoffset: 120;
+  }
+
+  68% {
+    opacity: 0;
+    stroke-dashoffset: -1040;
+  }
+
+  75% {
+    opacity: 0.52;
+  }
+
+  86% {
+    opacity: 0;
+    stroke-dashoffset: -220;
+  }
+}
+
+@keyframes circuitRingPulse {
+  0%,
+  10%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 1000;
+  }
+
+  17% {
+    opacity: 0.78;
+  }
+
+  48% {
+    opacity: 0.58;
+    stroke-dashoffset: 0;
+  }
+
+  56% {
+    opacity: 0;
+    stroke-dashoffset: -120;
+  }
+
+  70% {
+    opacity: 0;
+    stroke-dashoffset: 1000;
+  }
+
+  78% {
+    opacity: 0.34;
+  }
+
+  90% {
+    opacity: 0;
+    stroke-dashoffset: 300;
+  }
+}
+
+@keyframes centerRingSpinClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes centerRingSpinCounter {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes centerCoreBreath {
+  0%,
+  100% {
+    opacity: 0.025;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.07;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@keyframes centerRingBreath {
+  0%,
+  100% {
+    opacity: 0.025;
+    transform: translate3d(-50%, -50%, 0) scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.08;
+    transform: translate3d(-50%, -50%, 0) scale(1) rotate(var(--breath-rotation));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circuit-track,
+  .circuit-pulse path,
+  .circuit-ring-pulse circle,
+  .center-ring-device,
+  .center-ring-lamp,
+  .center-ring-core,
+  .center-ring-sweep,
+  #lightPillar.is-thinking::before,
+  #lightPillar.is-thinking::after {
+    animation: none;
+  }
+
+  .circuit-pulse path,
+  .circuit-ring-pulse circle {
+    opacity: 0.28;
+    stroke-dashoffset: 0;
+  }
+
+  #lightPillar.is-thinking::before,
+  #lightPillar.is-thinking::after {
+    opacity: 0;
+  }
+
+  #lightPillar.is-thinking-agent-01 .center-ring-device--agent-01,
+  #lightPillar.is-thinking-agent-02 .center-ring-device--agent-02,
+  #lightPillar.is-thinking-agent-03 .center-ring-device--agent-03,
+  #lightPillar.is-thinking-agent-04 .center-ring-device--agent-04 {
+    opacity: 0.42;
+  }
+
+  #lightPillar.is-thinking-agent-01 .center-ring-device--agent-01 .center-ring-sweep,
+  #lightPillar.is-thinking-agent-02 .center-ring-device--agent-02 .center-ring-sweep,
+  #lightPillar.is-thinking-agent-03 .center-ring-device--agent-03 .center-ring-sweep,
+  #lightPillar.is-thinking-agent-04 .center-ring-device--agent-04 .center-ring-sweep {
+    opacity: 0.2;
+  }
+}

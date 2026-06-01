@@ -1,0 +1,20 @@
+{
+  "commands": {
+    "agent-01": {
+      "command": "hermes",
+      "args": ["run", "--profile", "default"]
+    },
+    "agent-02": {
+      "command": "hermes",
+      "args": ["run", "--profile", "hermies"]
+    },
+    "agent-03": {
+      "command": "hermes",
+      "args": ["run", "--profile", "bf"]
+    },
+    "agent-04": {
+      "command": "hermes",
+      "args": ["run", "--profile", "deercare"]
+    }
+  }
+}
