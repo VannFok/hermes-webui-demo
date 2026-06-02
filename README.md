@@ -2,7 +2,7 @@
 
 English | [中文](#中文说明)
 
-Hermes WebUI Demo is a local futuristic control surface for a four-agent Hermes team. It provides a visual dashboard for HermesFox, Hermies, BF, and deercare, with live agent messaging, Telegram synchronization, WSL command bridging, cron notifications, animated HUD effects, message history, and a clean desktop-style UI.
+Hermes WebUI Demo is a local futuristic control surface for a four-agent Hermes team. It provides a visual dashboard for four configurable local agents, with live agent messaging, Telegram synchronization, WSL command bridging, cron notifications, animated HUD effects, message history, and a clean desktop-style UI.
 
 This repository is a demo-oriented WebUI layer. Real Hermes commands, local history, event logs, cron jobs, and private environment settings are intentionally excluded from the repository.
 
@@ -12,7 +12,7 @@ This repository is a demo-oriented WebUI layer. Real Hermes commands, local hist
 
 ## Features
 
-- Four-agent HUD for HermesFox, Hermies, BF, and deercare.
+- Four-agent HUD with configurable local agent profiles.
 - Local WebUI server with live browser updates.
 - Agent input composer with keyboard switching and message bubbles.
 - Recent message history per agent.
@@ -125,19 +125,19 @@ Use this flow if you want the WebUI to talk to real Hermes agents running inside
      "commands": {
        "agent-01": {
          "command": "hermes",
-         "args": ["run", "--profile", "default"]
+         "args": ["run", "--profile", "profile-01"]
        },
        "agent-02": {
          "command": "hermes",
-         "args": ["run", "--profile", "hermies"]
+         "args": ["run", "--profile", "profile-02"]
        },
        "agent-03": {
          "command": "hermes",
-         "args": ["run", "--profile", "bf"]
+         "args": ["run", "--profile", "profile-03"]
        },
        "agent-04": {
          "command": "hermes",
-         "args": ["run", "--profile", "deercare"]
+         "args": ["run", "--profile", "profile-04"]
        }
      }
    }
@@ -238,7 +238,7 @@ Download the latest packaged source from the GitHub Releases page:
 
 ## 中文说明
 
-Hermes WebUI Demo 是一个给四个 Hermes agent 使用的本地未来感控制台。它为 HermesFox、Hermies、BF、deercare 提供可视化操作界面，支持实时消息、Telegram 同步、WSL 命令桥接、cron 提醒和任务展示、消息历史、HUD 动效，以及更接近桌面控制台的交互体验。
+Hermes WebUI Demo 是一个给四个 Hermes agent 使用的本地未来感控制台。它为四个可配置的本地 agent 提供可视化操作界面，支持实时消息、Telegram 同步、WSL 命令桥接、cron 提醒和任务展示、消息历史、HUD 动效，以及更接近桌面控制台的交互体验。
 
 这个仓库主要是 WebUI demo 层。真实 Hermes 命令、本地历史记录、事件日志、cron 任务和私密环境配置不会上传到仓库。
 
@@ -248,7 +248,7 @@ Hermes WebUI Demo 是一个给四个 Hermes agent 使用的本地未来感控制
 
 ## 功能
 
-- HermesFox、Hermies、BF、deercare 四个 agent 顶部控制栏。
+- 四个可配置 agent 的顶部控制栏。
 - 本地 WebUI 服务，浏览器实时使用。
 - Agent 输入框、快捷切换、气泡消息。
 - 每个 agent 的最近消息历史。
@@ -361,19 +361,19 @@ start-hermes-webui.cmd
      "commands": {
        "agent-01": {
          "command": "hermes",
-         "args": ["run", "--profile", "default"]
+         "args": ["run", "--profile", "profile-01"]
        },
        "agent-02": {
          "command": "hermes",
-         "args": ["run", "--profile", "hermies"]
+         "args": ["run", "--profile", "profile-02"]
        },
        "agent-03": {
          "command": "hermes",
-         "args": ["run", "--profile", "bf"]
+         "args": ["run", "--profile", "profile-03"]
        },
        "agent-04": {
          "command": "hermes",
-         "args": ["run", "--profile", "deercare"]
+         "args": ["run", "--profile", "profile-04"]
        }
      }
    }

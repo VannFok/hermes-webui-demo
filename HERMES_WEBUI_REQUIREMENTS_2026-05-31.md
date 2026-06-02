@@ -12,10 +12,10 @@
 
 固定展示 4 个 agent：
 
-- HermesFox
-- Hermies
-- BF
-- deercare
+- Agent 01
+- Agent 02
+- Agent 03
+- Agent 04
 
 每个 agent 都需要：
 
@@ -27,10 +27,10 @@
 
 头像来源：
 
-- HermesFox：用户提供的狐狸头像。
-- Hermies：用户提供的绿色 C 形头像。
-- BF：用户提供的猫头像。
-- deercare：用户提供的鹿头像。
+- Agent 01：用户提供的头像。
+- Agent 02：用户提供的头像。
+- Agent 03：用户提供的头像。
+- Agent 04：用户提供的头像。
 
 左上角 Hermes Team logo 使用用户提供原版小女孩形象改成黑白配色后的头像，不使用随意生成的替代图。
 
@@ -164,7 +164,7 @@ agent typing 状态：
 目标：
 
 - Telegram 里发给某个 agent 的消息和回复，要能同步显示到 WebUI。
-- 例如 Telegram 给 BF 发消息，WebUI 里的 BF 应该同步收到信息。
+- 例如 Telegram 给某个 agent 发消息，WebUI 里对应 agent 应该同步收到信息。
 - 切换到其他浏览器标签页时，WebUI 仍要实时收到消息。
 - 浏览器标签标题要能闪烁显示发消息来的 agent 名字。
 
@@ -233,4 +233,3 @@ cron 任务消息不应作为普通中间气泡弹出。
 - 修改 inbox 测试，确保以后不会再写入真实历史文件。
 - 继续确认 Telegram 真实消息同步链路是否稳定。
 - 若后续继续做 reply 引用，需要明确“点击中间气泡输入”时是否默认引用当前气泡，还是只作为普通任务。
-
