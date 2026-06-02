@@ -50,6 +50,155 @@ You can also double-click:
 start-hermes-webui.cmd
 ```
 
+## Windows + WSL Hermes Setup
+
+Use this flow if you want the WebUI to talk to real Hermes agents running inside WSL.
+
+1. Download the project.
+
+   Download the latest source zip from:
+
+   ```text
+   https://github.com/VannFok/hermes-webui-demo/releases
+   ```
+
+   Extract it to a local folder, for example:
+
+   ```text
+   D:\CODEX项目\hermes-webui-demo
+   ```
+
+2. Install Node.js.
+
+   Install Node.js 18 or newer from:
+
+   ```text
+   https://nodejs.org/
+   ```
+
+   Check the installation:
+
+   ```powershell
+   node -v
+   npm -v
+   ```
+
+3. Install project dependencies.
+
+   Open PowerShell in the project folder:
+
+   ```powershell
+   cd "D:\CODEX项目\hermes-webui-demo"
+   npm install
+   ```
+
+4. Confirm WSL and Hermes are available.
+
+   Check your WSL distro:
+
+   ```powershell
+   wsl -l -v
+   ```
+
+   Open your distro and confirm Hermes can run:
+
+   ```powershell
+   wsl -d Ubuntu -- bash -lc "hermes --version"
+   ```
+
+   If your distro is not named `Ubuntu`, use your actual distro name in later commands.
+
+5. Create the local agent command config.
+
+   ```powershell
+   copy hermes-agent-commands.example.json hermes-agent-commands.json
+   ```
+
+   The default example maps the four WebUI agents like this:
+
+   ```json
+   {
+     "commands": {
+       "agent-01": {
+         "command": "hermes",
+         "args": ["run", "--profile", "default"]
+       },
+       "agent-02": {
+         "command": "hermes",
+         "args": ["run", "--profile", "hermies"]
+       },
+       "agent-03": {
+         "command": "hermes",
+         "args": ["run", "--profile", "bf"]
+       },
+       "agent-04": {
+         "command": "hermes",
+         "args": ["run", "--profile", "deercare"]
+       }
+     }
+   }
+   ```
+
+   If your Hermes command or profiles are different, edit this file before starting the WebUI.
+
+6. Start the WebUI.
+
+   For the default `Ubuntu` distro:
+
+   ```powershell
+   npm run start
+   ```
+
+   If your WSL distro has another name:
+
+   ```powershell
+   $env:HERMES_WSL_DISTRO="YourDistroName"
+   npm run start
+   ```
+
+   You can also set `HERMES_WSL_DISTRO` before double-clicking `start-hermes-webui.cmd`.
+
+7. Open the browser.
+
+   ```text
+   http://127.0.0.1:4173
+   ```
+
+8. Send the first test message.
+
+   Click an agent name in the top bar, or press `Tab` to switch to the next agent and open the input box.
+
+   Type a short message such as:
+
+   ```text
+   hello
+   ```
+
+   Press `Enter` to send.
+
+   Expected result:
+
+   - The selected agent enters a typing/running visual state.
+   - The center ring animation appears while the agent is running.
+   - The reply appears as a message bubble.
+   - The latest message is saved into that agent's recent history drawer.
+
+9. Troubleshooting.
+
+   If the WebUI opens but the agent does not reply:
+
+   - Keep the `npm run start` terminal open.
+   - Check whether the terminal says `no command configured for ...`.
+   - Confirm `hermes-agent-commands.json` exists.
+   - Confirm the target Hermes command works inside WSL.
+   - Confirm `HERMES_WSL_DISTRO` matches your distro name.
+
+   If the browser cannot open `127.0.0.1:4173`, start the WebUI again:
+
+   ```powershell
+   npm run start
+   ```
+
 ## Connect Real Hermes Agents
 
 Copy one of the example command files:
@@ -132,6 +281,155 @@ http://127.0.0.1:4173
 ```text
 start-hermes-webui.cmd
 ```
+
+## Windows + WSL Hermes 接入步骤
+
+如果你希望 WebUI 直接连接 WSL 里的真实 Hermes agent，按下面步骤操作。
+
+1. 下载项目。
+
+   从 GitHub Releases 下载最新源码包：
+
+   ```text
+   https://github.com/VannFok/hermes-webui-demo/releases
+   ```
+
+   解压到本地目录，例如：
+
+   ```text
+   D:\CODEX项目\hermes-webui-demo
+   ```
+
+2. 安装 Node.js。
+
+   从 Node.js 官网安装 Node.js 18 或更新版本：
+
+   ```text
+   https://nodejs.org/
+   ```
+
+   检查安装结果：
+
+   ```powershell
+   node -v
+   npm -v
+   ```
+
+3. 安装项目依赖。
+
+   在 PowerShell 进入项目目录：
+
+   ```powershell
+   cd "D:\CODEX项目\hermes-webui-demo"
+   npm install
+   ```
+
+4. 确认 WSL 和 Hermes 可用。
+
+   查看你的 WSL 发行版名称：
+
+   ```powershell
+   wsl -l -v
+   ```
+
+   测试 Hermes 是否能在 WSL 中运行：
+
+   ```powershell
+   wsl -d Ubuntu -- bash -lc "hermes --version"
+   ```
+
+   如果你的 WSL 发行版不叫 `Ubuntu`，后续命令里要换成你的真实发行版名称。
+
+5. 创建本地 agent 命令配置。
+
+   ```powershell
+   copy hermes-agent-commands.example.json hermes-agent-commands.json
+   ```
+
+   默认示例会把四个 WebUI agent 映射到四个 Hermes profile：
+
+   ```json
+   {
+     "commands": {
+       "agent-01": {
+         "command": "hermes",
+         "args": ["run", "--profile", "default"]
+       },
+       "agent-02": {
+         "command": "hermes",
+         "args": ["run", "--profile", "hermies"]
+       },
+       "agent-03": {
+         "command": "hermes",
+         "args": ["run", "--profile", "bf"]
+       },
+       "agent-04": {
+         "command": "hermes",
+         "args": ["run", "--profile", "deercare"]
+       }
+     }
+   }
+   ```
+
+   如果你的 Hermes 命令或 profile 名称不同，启动前先修改 `hermes-agent-commands.json`。
+
+6. 启动 WebUI。
+
+   如果 WSL 发行版是默认的 `Ubuntu`：
+
+   ```powershell
+   npm run start
+   ```
+
+   如果你的 WSL 发行版是其他名称：
+
+   ```powershell
+   $env:HERMES_WSL_DISTRO="你的发行版名称"
+   npm run start
+   ```
+
+   也可以在双击 `start-hermes-webui.cmd` 前先设置 `HERMES_WSL_DISTRO`。
+
+7. 打开浏览器。
+
+   ```text
+   http://127.0.0.1:4173
+   ```
+
+8. 发送第一条测试消息。
+
+   点击顶部栏里的某个 agent 名称，或者按 `Tab` 切换到下一个 agent 并自动打开输入框。
+
+   输入一条短消息，例如：
+
+   ```text
+   hello
+   ```
+
+   按 `Enter` 发送。
+
+   预期效果：
+
+   - 被选中的 agent 进入 typing/running 可视状态。
+   - agent 运行时中心灯环开始出现并旋转。
+   - 回复完成后弹出气泡消息。
+   - 最新消息会进入该 agent 的最近历史抽屉。
+
+9. 排查常见问题。
+
+   如果 WebUI 能打开但 agent 没有回复：
+
+   - 保持 `npm run start` 的终端窗口不要关闭。
+   - 查看终端是否提示 `no command configured for ...`。
+   - 确认 `hermes-agent-commands.json` 已创建。
+   - 确认目标 Hermes 命令能在 WSL 中正常运行。
+   - 确认 `HERMES_WSL_DISTRO` 和你的 WSL 发行版名称一致。
+
+   如果浏览器打不开 `127.0.0.1:4173`，重新启动 WebUI：
+
+   ```powershell
+   npm run start
+   ```
 
 ## 接入真实 Hermes Agent
 
