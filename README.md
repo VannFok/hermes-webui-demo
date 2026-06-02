@@ -6,6 +6,10 @@ Hermes WebUI Demo is a local futuristic control surface for a four-agent Hermes 
 
 This repository is a demo-oriented WebUI layer. Real Hermes commands, local history, event logs, cron jobs, and private environment settings are intentionally excluded from the repository.
 
+## Background Preview
+
+![Hermes WebUI futuristic background](./789.png)
+
 ## Features
 
 - Four-agent HUD for HermesFox, Hermies, BF, and deercare.
@@ -237,6 +241,10 @@ Download the latest packaged source from the GitHub Releases page:
 Hermes WebUI Demo 是一个给四个 Hermes agent 使用的本地未来感控制台。它为 HermesFox、Hermies、BF、deercare 提供可视化操作界面，支持实时消息、Telegram 同步、WSL 命令桥接、cron 提醒和任务展示、消息历史、HUD 动效，以及更接近桌面控制台的交互体验。
 
 这个仓库主要是 WebUI demo 层。真实 Hermes 命令、本地历史记录、事件日志、cron 任务和私密环境配置不会上传到仓库。
+
+## 背景图预览
+
+![Hermes WebUI 未来风背景图](./789.png)
 
 ## 功能
 
